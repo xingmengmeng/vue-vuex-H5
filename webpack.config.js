@@ -3,6 +3,7 @@ var glob = require('glob');
 var webpack = require('webpack');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');/*生成html*/
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
     // 这是一个主文件包括其他模块
@@ -46,7 +47,12 @@ var config = {
             },
         ]
     },
-    plugins: [],
+    plugins: [
+        new CopyWebpackPlugin([{
+            from: path.join(__dirname, 'static'),
+            to: path.join(__dirname, 'dev/js'),
+        }]),
+    ],
 }
 module.exports = config;
 
@@ -59,7 +65,7 @@ pages.forEach(function(pathname) {
     var itemName  = pathname.split('src\\') //根据系统路径来取文件名，window下的做法//,其它系统另测
     var conf = {
         filename: itemName[1] + '.html', //生成的html存放路径，相对于path
-        favicon: 'favicon.ico',
+        //favicon: 'favicon.ico',
         template: pathname + '.html', //html模板路径
         inject: true, //允许插件修改哪些内容，包括head与body
         hash: false, //是否添加hash值
