@@ -1,6 +1,6 @@
 <template>
     <div>
-        登录页面+5  时间很快
+        登录页面+5  时间很快s
     </div>
 </template>
 <script>

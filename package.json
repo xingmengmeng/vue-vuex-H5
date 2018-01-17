@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config build.config.js --progress",
-    "start": "webpack-dev-server --port 3002 --open --progress"
+    "start": "webpack-dev-server --hot --inline --port 3002 --open --progress"
   },
   "author": "",
   "license": "ISC",
