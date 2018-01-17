@@ -4,6 +4,7 @@ var webpack = require('webpack');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');/*生成html*/
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
     // 这是一个主文件包括其他模块
@@ -14,8 +15,8 @@ var config = {
     output: {
         path: path.join(__dirname, 'dist'), //打包后生成的目录
         publicPath: '',	//模板、样式、脚本、图片等资源对应的server上的路径
-        filename: '/js/[name].[hash:6].js',	//根据对应入口名称，生成对应js名称
-        //chunkFilename: 'js/[id].chunk.js'   //chunk生成的配置
+        filename: '/js/[name].[chunkhash].js',	//根据对应入口名称，生成对应js名称
+        chunkFilename: '/js/[id].[chunkhash].js'   //chunk生成的配置
     },
     resolve: {
         extensions: ['', '.js', '.vue'],
@@ -58,7 +59,11 @@ var config = {
             'process.env': {
                 NODE_ENV: JSON.stringify("production"),
             },
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: path.join(__dirname, 'static'),
+            to: path.join(__dirname, 'dist/js'),
+        }]),
     ],
 }
 module.exports = config;
