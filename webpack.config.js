@@ -49,10 +49,19 @@ var config = {
     },
     plugins: [
         new CopyWebpackPlugin([{
-            from: path.join(__dirname, 'static'),
-            to: path.join(__dirname, 'dev/js'),
+            /*from: path.join(__dirname, '/static'),
+            to: path.join(__dirname, '/dev/js'),*/
+            from: __dirname + '/static',
+            to:__dirname + '/dev/js',
         }]),
     ],
+    devServer: {
+        historyApiFallback: true,
+        proxy:{
+            '/api':'http://localhost:3000'
+        },
+        outputPath: path.join(__dirname, 'dev')
+    }
 }
 module.exports = config;
 

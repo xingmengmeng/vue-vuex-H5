@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config build.config.js --progress"
+    "build": "webpack --config build.config.js --progress",
+    "start": "webpack-dev-server --port 3002 --open --progress"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +37,8 @@
     "vue-loader": "^11.1.4",
     "vue-style-loader": "^2.0.3",
     "vue-template-compiler": "^2.2.1",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
     "axios": "^0.17.1",
