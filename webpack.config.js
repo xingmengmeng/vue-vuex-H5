@@ -64,7 +64,7 @@ var config = {
                     changeOrigin: true,
                 }
         },
-        outputPath: path.join(__dirname, 'dev')
+        outputPath: path.join(__dirname, 'dev')//不写的话会报copywebpackplugin的错
     }
 }
 module.exports = config;
