@@ -1,11 +1,7 @@
 const getters = {
-    getCancel(states){
-        return states.event.filter(function (d) {
-            if (d.type === 3) {
-                return d;
-            }
-        });
-    }
+    getEventList(states) {
+        return states.resData;
+    },
 };
 
 export default getters;

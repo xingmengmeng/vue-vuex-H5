@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex';
+import store from './store/index'
 import axios from 'axios';
 
-Vue.use(VueRouter);
-Vue.prototype.$http=axios;
+import { mapMutations } from 'vuex'
 
+Vue.use(VueRouter);
+Vue.use(Vuex);
+Vue.prototype.$http=axios;
 import App from './views/app.vue'
 
 /*import Index from './views/indexMain.vue'*/
@@ -29,5 +33,6 @@ const router = new VueRouter({
 new Vue({
     el: '#app',
     router:router,
+    store: store,
     components: { App }
 })
