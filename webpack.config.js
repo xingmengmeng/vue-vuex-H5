@@ -58,7 +58,11 @@ var config = {
     devServer: {
         historyApiFallback: true,
         proxy:{
-            '/api':'http://localhost:3000'
+            '/api':
+                {
+                    target: 'http://10.152.18.35:8180', //测试或开发环境所连后台ip
+                    changeOrigin: true,
+                }
         },
         outputPath: path.join(__dirname, 'dev')
     }
